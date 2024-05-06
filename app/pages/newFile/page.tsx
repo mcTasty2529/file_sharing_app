@@ -1,24 +1,34 @@
 "use client";
+import { storage } from "../../firebase";
+import { ref, uploadBytes } from "firebase/storage";
 import React, { useState } from "react";
 
 const NewFile = () => {
-  const [file, setFile] = useState([]);
+  const [file, setFile] = useState<File | null>(null);
   const [fileData, setFileData] = useState("");
-  const handleSubmit = (e) => {
+
+  const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (file == null) return;
+    const fileRef = ref(storage, `files/${file.name}`);
+    uploadBytes(fileRef, file).then(() => {
+      alert("File Uploaded");
+    });
   };
+
   return (
     <section className="flex items-center justify-center bg-zinc-100 border-2 border-blue-500 shadow-xl shadow-zinc-400 m-10 p-6 rounded-xl w-[70dvw] h-[90dvh] flex-shrink">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 w-[90%] md:w-[50%]"
       >
-        <div>File Preview</div>
         <input
           className=" border-2 border-zinc-500 rounded-lg p-2 "
           type="file"
           onChange={(e) => {
-            setFile(e.target.files?.[0]);
+            if (e.target.files) {
+              setFile(e.target.files[0]);
+            }
           }}
         />
         <input
