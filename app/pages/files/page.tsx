@@ -16,7 +16,7 @@ const YourComponent = () => {
     fetchFiles();
   }, []);
 
-  const handleDownload = async (file) => {
+  const handleDownload = async (file: any) => {
     const downloadURL = await getDownloadURL(file.ref);
     const link = document.createElement("a");
     link.href = downloadURL;
@@ -26,7 +26,7 @@ const YourComponent = () => {
   };
 
   return (
-    <div className="flex m-4 p-4 gap-6 flex-wrap ">
+    <div className="flex m-2 p-2 gap-4 flex-wrap ">
       {files.map((file, index) => (
         <div
           className="bg-zinc-200 border-2 border-blue-400 w-[200px] h-[200px] flex flex-col items-center  rounded-lg shadow-xl shadow-zinc-300 text-blue-500 p-4 justify-between"
