@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "firebase": "^10.11.1",
     "formidable": "^3.5.1",
     "next": "14.2.3",

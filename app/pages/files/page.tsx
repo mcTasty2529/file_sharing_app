@@ -3,9 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
+import { StorageReference } from "firebase/storage";
 
 const YourComponent = () => {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState<{ name: string; ref: StorageReference }[]>(
+    []
+  );
 
   useEffect(() => {
     const fetchFiles = async () => {
@@ -27,7 +30,7 @@ const YourComponent = () => {
 
   return (
     <div className="flex m-2 p-2 gap-4 flex-wrap ">
-      {files.map((file, index) => (
+      {files.map((file: { name: string }, index: number) => (
         <div
           className="bg-zinc-200 border-2 border-blue-400 w-[200px] h-[200px] flex flex-col items-center  rounded-lg shadow-xl shadow-zinc-300 text-blue-500 p-4 justify-between"
           key={index}
