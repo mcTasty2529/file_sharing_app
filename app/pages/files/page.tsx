@@ -29,16 +29,18 @@ const YourComponent = () => {
   };
 
   return (
-    <div className="flex m-2 p-2 gap-4 flex-wrap ">
+    <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-4 lg:grid-cols-4  m-2 p-2 gap-4 ">
       {files.map((file: { name: string }, index: number) => (
         <div
-          className="bg-zinc-200 border-2 border-blue-400 w-[200px] h-[200px] flex flex-col items-center  rounded-lg shadow-xl shadow-zinc-300 text-blue-500 p-4 justify-between"
           key={index}
+          className="bg-zinc-900 p-3 rounded-lg w-52 h-[200px] items-center justify-between flex flex-col flex-shrink-0 text-zinc-400"
         >
-          {file.name}
+          <div className="text-wrap truncate overflow-ellipsis break-all">
+            {file.name}
+          </div>
           <button
             onClick={() => handleDownload(file)}
-            className="border-2 border-blue-500 rounded-lg p-2 text-blue-500 "
+            className="border-2 border-zinc-500 rounded-lg p-2 text-zinc-500 "
           >
             Download
           </button>
@@ -49,7 +51,7 @@ const YourComponent = () => {
 };
 
 const fetchFilesFromStorage = async () => {
-  const storageRef = ref(storage, "/files"); // Replace '/' with the path to your desired folder
+  const storageRef = ref(storage, "/files");
   const result = await listAll(storageRef);
   const filesWithUrls = await Promise.all(
     result.items.map(async (itemRef) => ({

@@ -22,7 +22,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <nav className="bg-zinc-300 h-[100dvh] w-[20vw] p-3 hidden md:block ">
+    <nav className="bg-zinc-300 h-[100dvh] w-[20vw] p-3 flex flex-col flex-shrink-0">
       <h1 className="text-zinc-800 font-bold text-2xl">FILE SHARE</h1>
       <div className=" flex flex-col mt-6 p-1 gap-4 text-zinc-700">
         {sideLinks.map((link, index) => (
@@ -31,8 +31,8 @@ const Sidebar = () => {
               key={index}
               className="bg-zinc-100 rounded-md py-3 px-4 flex justify-between items-center gap-2 shadow-lg shadow-zinc-400"
             >
-              {link.name}
-              {link.icon}
+              <div className="hidden md:block">{link.name}</div>
+              <div>{link.icon}</div>
             </div>
           </Link>
         ))}
