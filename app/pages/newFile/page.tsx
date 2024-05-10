@@ -3,6 +3,8 @@ import { storage } from "../../firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import React, { useState } from "react";
 
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
 const NewFile = () => {
   const [file, setFile] = useState<File | null>(null);
   // const [fileData, setFileData] = useState("");
@@ -11,6 +13,11 @@ const NewFile = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (file == null) return;
+
+    if (file.size > MAX_FILE_SIZE) {
+      alert("File size exceeds the maximum limit of 10MB.");
+      return;
+    }
 
     setIsLoading(true);
 
