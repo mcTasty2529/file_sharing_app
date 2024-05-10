@@ -33,14 +33,14 @@ const YourComponent = () => {
       {files.map((file: { name: string }, index: number) => (
         <div
           key={index}
-          className="bg-zinc-900 p-3 rounded-lg w-52 h-[200px] items-center justify-between flex flex-col flex-shrink-0 text-zinc-400"
+          className="bg-blue-800 p-3 rounded-lg w-52 h-[200px] items-center justify-between flex flex-col flex-shrink-0 text-zinc-200"
         >
           <div className="text-wrap truncate overflow-ellipsis break-all">
             {file.name}
           </div>
           <button
             onClick={() => handleDownload(file)}
-            className="border-2 border-zinc-500 rounded-lg p-2 text-zinc-500 "
+            className="border-2 border-zinc-200 rounded-lg p-2 text-zinc-200 "
           >
             Download
           </button>
