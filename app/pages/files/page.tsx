@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 import { StorageReference } from "firebase/storage";
+import { MdOutlineInsertComment } from "react-icons/md";
+import Link from "next/link";
 
 const YourComponent = () => {
   const [files, setFiles] = useState<{ name: string; ref: StorageReference }[]>(
@@ -33,17 +35,24 @@ const YourComponent = () => {
       {files.map((file: { name: string }, index: number) => (
         <div
           key={index}
-          className="bg-blue-800 p-3 rounded-lg w-52 h-[200px] items-center justify-between flex flex-col flex-shrink-0 text-zinc-200"
+          className="bg-blue-800 p-3 rounded-lg  w-52 h-[200px] items-center justify-between flex flex-col flex-shrink-0 text-zinc-200"
         >
           <div className="text-wrap truncate overflow-ellipsis break-all">
             {file.name}
           </div>
-          <button
-            onClick={() => handleDownload(file)}
-            className="border-2 border-zinc-200 rounded-lg p-2 text-zinc-200 "
-          >
-            Download
-          </button>
+          <div className="flex items-center justify-center gap-10">
+            <button
+              onClick={() => handleDownload(file)}
+              className="border-2 border-zinc-200 rounded-lg p-2 text-zinc-200 "
+            >
+              Download
+            </button>
+            <Link href={`/pages/viewfile/${file.name}`}>
+              <div className="text-white">
+                <MdOutlineInsertComment size={30} />
+              </div>
+            </Link>
+          </div>
         </div>
       ))}
     </div>
