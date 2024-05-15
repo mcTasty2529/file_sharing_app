@@ -4,10 +4,8 @@ import React, { useState, useEffect } from "react";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 import { StorageReference } from "firebase/storage";
-import { MdOutlineInsertComment } from "react-icons/md";
-import Link from "next/link";
 
-const YourComponent = () => {
+const Files = () => {
   const [files, setFiles] = useState<{ name: string; ref: StorageReference }[]>(
     []
   );
@@ -47,11 +45,6 @@ const YourComponent = () => {
             >
               Download
             </button>
-            <Link href={`/pages/viewfile/${file.name}`}>
-              <div className="text-white">
-                <MdOutlineInsertComment size={30} />
-              </div>
-            </Link>
           </div>
         </div>
       ))}
@@ -71,4 +64,4 @@ const fetchFilesFromStorage = async () => {
   return filesWithUrls;
 };
 
-export default YourComponent;
+export default Files;
