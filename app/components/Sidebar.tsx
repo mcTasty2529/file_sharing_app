@@ -22,18 +22,16 @@ const Sidebar = () => {
     },
   ];
   return (
-    <nav className="bg-blue-900 h-dvh w-[20vw] p-3 flex flex-col flex-shrink-0">
-      <h1 className="text-zinc-200 font-bold text-2xl text-center">
+    <nav className="bg-blue-900 h-[100vh] w-[150px] p-3 flex shrink-0 flex-col">
+      <p className=" text-white font-bold text-xl mb-4 text-center">
         FILE SHARE
-      </h1>
+      </p>
+      <hr />
       <div className=" flex flex-col mt-10 p-1 gap-4 text-zinc-700">
         {sideLinks.map((link, index) => (
-          <Link href={link.url}>
-            <div
-              key={index}
-              className="bg-zinc-100 rounded-md py-3 px-4 flex justify-between items-center gap-2 shadow-lg "
-            >
-              <div className="hidden md:block">{link.name}</div>
+          <Link href={link.url} key={index}>
+            <div className="bg-white rounded px-3 py-2 flex justify-between items-center gap-2 shadow-lg ">
+              <div>{link.name}</div>
               <div>{link.icon}</div>
             </div>
           </Link>

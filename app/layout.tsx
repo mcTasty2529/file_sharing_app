@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} flex`}>
+      <body
+        className={`${montserrat.className}  box-border h-[100vh] w-[100vw] flex overflow-x-hidden`}
+      >
         <NextTopLoader />
         <Sidebar />
         {children}

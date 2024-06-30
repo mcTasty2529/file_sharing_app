@@ -40,16 +40,16 @@ const NewFile = () => {
   };
 
   return (
-    <section className="flex items-center justify-center bg-zinc-100 border-2 border-blue-500 shadow-xl shadow-zinc-400 m-10 p-6 rounded-xl w-[70dvw] h-[90dvh] flex-shrink">
+    <section className="w-[100%] h-[100%] p-6 flex justify-center">
       {isLoading ? (
         <div>Uploading....</div>
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 w-[90%] md:w-[50%]"
+          className="flex flex-col border shadow-xl h-[200px] w-[300px] min-w-[200px] p-4 rounded gap-4 justify-center items-center"
         >
           <input
-            className=" border-2 border-zinc-500 rounded-lg p-2 "
+            className="w-[100%] border-2 p-1 rounded"
             type="file"
             onChange={(e) => {
               if (e.target.files) {
@@ -57,7 +57,7 @@ const NewFile = () => {
               }
             }}
           />
-          <button className="border-2 border-blue-500 rounded-lg p-2 text-blue-500 ">
+          <button className="bg-blue-800 p-2 w-[100%] rounded text-zinc-200 hover:bg-zinc-200 hover:text-blue-900 duration-300">
             Add File
           </button>
         </form>

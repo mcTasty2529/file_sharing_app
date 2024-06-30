@@ -29,19 +29,17 @@ const Files = () => {
   };
 
   return (
-    <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-4 lg:grid-cols-4  m-2 p-2 gap-4 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[100%] mx-6 my-4 gap-3 overflow-y-scroll">
       {files.map((file: { name: string }, index: number) => (
         <div
           key={index}
-          className="bg-blue-800 p-3 rounded-lg  w-52 h-[200px] items-center justify-between flex flex-col flex-shrink-0 text-zinc-200"
+          className="bg-blue-800 rounded text-zinc-200 p-4 flex justify-between items-center w-[100%]"
         >
-          <div className="text-wrap truncate overflow-ellipsis break-all">
-            {file.name}
-          </div>
-          <div className="flex items-center justify-center gap-10">
+          <div className="">{file.name}</div>
+          <div className="">
             <button
               onClick={() => handleDownload(file)}
-              className="border-2 border-zinc-200 rounded-lg p-2 text-zinc-200 "
+              className=" p-2 border-2 border-zinc-200 rounded text-zinc-200 hover:bg-zinc-200 hover:text-blue-900 duration-300"
             >
               Download
             </button>
