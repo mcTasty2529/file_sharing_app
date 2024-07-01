@@ -33,7 +33,7 @@ const Files = () => {
       {files.map((file: { name: string }, index: number) => (
         <div
           key={index}
-          className="bg-blue-800 rounded text-zinc-200 p-4 flex justify-between items-center w-[100%]"
+          className="bg-blue-800 rounded text-zinc-200 p-4 flex justify-between items-center w-[100%] h-[100px]"
         >
           <div className="">{file.name}</div>
           <div className="">
